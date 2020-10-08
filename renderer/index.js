@@ -1,6 +1,8 @@
 const { Operands } = require("D://Desktop//calculate//Class//Operands")
 const { Operandor} = require("D://Desktop//calculate//Class//Operandor") 
 const {creatRandom} = require('D://Desktop//calculate//Utils//index')
+const $ = require('jquery')
+console.log($)
 console.log(Operands)
 console.log(Operandor)
 var numRange = 6 //默认范围为0-10
@@ -17,3 +19,25 @@ let newOperandor = new Operandor('-')
 console.log(newOperandor)
 console.log('本次随机生成的运算符'+newOperandor.operandor)
 console.log('本次随机生成的运算符的优先级'+newOperandor.priority)
+$(function(){
+    var $toast = $('#js_toast');
+    var $input = $('#js_input');
+    $input.on('input', function(){
+      if ($input.val()){
+        $('#showTooltips').removeClass('weui-btn_disabled');
+      }else{
+        $('#showTooltips').addClass('weui-btn_disabled');
+      }
+    });
+    $('#showTooltips').on('click', function(){
+      if ($(this).hasClass('weui-btn_disabled')) return;
+
+      // toptips的fixed, 如果有`animation`, `position: fixed`不生效
+      $('.page.cell').removeClass('slideIn');
+
+      $toast.fadeIn(100);
+      setTimeout(function () {
+        $toast.fadeOut(100);
+      }, 2000);
+    });
+  });

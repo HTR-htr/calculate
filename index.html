@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./renderer/index.css">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css">
 </head>
 <body>
-    你好四则运算
+    <div class="page">
+        <div class="weui-form">
+          <div class="weui-form__control-area">
+            <div class="weui-cells__group weui-cells__group_form">
+              <div class="weui-cells__title">生成题目</div>
+              <div class="weui-cells weui-cells_form">
+                <div class="weui-cell weui-cell_active">
+                  <div class="weui-cell__hd"><label class="weui-label">题目范围</label></div>
+                  <div class="weui-cell__bd">
+                      <input id="js_input" class="weui-input" placeholder="填写生成题目的范围"/>
+                  </div>
+                </div>
+                <div class="weui-cell weui-cell_active">
+                  <div class="weui-cell__hd"><label class="weui-label">题目数量</label></div>
+                  <div class="weui-cell__bd">
+                      <input id="js_input" class="weui-input" placeholder="填写小于10000的数"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="weui-form__opr-area">
+            <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="showTooltips">确定</a>
+          </div>
+        </div>
+        <div id="js_toast" style="display: none;">
+            <div class="weui-mask_transparent"></div>
+            <div class="weui-toast">
+                <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+                <p class="weui-toast__content">已完成</p>
+            </div>
+        </div>
+        <div class="weui-cells__title">校对答案</div>
+        <div class="weui-cells">
+            <a class="weui-cell  weui-cell_access" href="javascript:">
+                <div class="weui-cell__bd">
+                    <p>题目文件</p>
+                </div>
+                <div class="weui-cell__ft">点击选择题目</div>
+            </a>
+            <a class="weui-cell  weui-cell_access" href="javascript:">
+                <div class="weui-cell__bd">
+                    <p>答案文件</p>
+                </div>
+                <div class="weui-cell__ft">点击选择答案</div>
+            </a>
+        </div>
+            <a class="weui-btn weui-btn_primary weui-btn_disabled check" href="javascript:" id="showTooltips">确定</a>
+      </div>
+      
     <script src="./renderer/index.js"></script>
 </body>
 </html>

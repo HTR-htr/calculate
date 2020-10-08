@@ -1,0 +1,15 @@
+.page>.weui-form{
+    padding:0
+}
+.page .weui-form__opr-area{
+    margin-bottom: 0;
+}
+.page .weui-form__opr-area:last-child{
+    margin-bottom: 0;
+}
+.check{
+    margin-top:50px;
+}
+.weui-cell{
+    min-width:500px ;
+}

@@ -8,6 +8,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron-reloader": "^1.0.1"
+    "electron-reloader": "^1.0.1",
+    "jquery": "^3.5.1"
+  },
+  "dependencies": {
+    "weui": "^2.3.0"
   }
 }
