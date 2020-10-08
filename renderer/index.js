@@ -41,6 +41,6 @@ const $ = require('jquery')
 //       }, 2000);
 //     });
 //   });
-const {generateQueation} = require('D://Desktop//calculate//Utils//questions')
-console.log(generateQueation)
-generateQueation(10,100)
+const {generateQuestion} = require('D://Desktop//calculate//Utils//questions')
+console.log(generateQuestion)
+console.log(generateQuestion(10,10))

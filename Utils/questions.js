@@ -3,22 +3,23 @@ const { creatRandom } = require('D://Desktop//calculate//Utils//index')
 const { Operands } = require('D://Desktop//calculate//Class//Operands')
 const { Operandor} = require('D://Desktop//calculate//Class//Operandor') 
 const { calculateExpArr } = require('D://Desktop//calculate//Utils//calculate')
-
+const { insertBrackets } = require('D://Desktop//calculate//Utils//brackets')
+console.log(insertBrackets)
 /*
 *@descriotion: 生成题目的函数,成为数组
 *@param questionRange 生成题目的范围
 *@param questionNum 生成题目的数目
 *@return 返回题目数组
 */
-exports.generateQueation = (numRange,questionNum)=>{
+exports.generateQuestion = (numRange,questionNum)=>{
     let questionArr = []
     let canBeZero = true
     for(let i=0;i<questionNum;i++){
-        let operandsNum = creatRandom(1,4) //随机生成操作数[1,4] 
+        let operandsNum = creatRandom(2,4) //随机生成操作数[2,4] 
         let operandorNum = operandsNum-1 //生成操作符[1,3]
         let expArr = [] //式子数组
 
-        for(let j=0;j<operandorNum;j++){
+        for(let j=0;j<operandsNum;j++){
             let newOperandsNum = new Operands({numRange,canBeZero})
             expArr.push(newOperandsNum)
 
@@ -36,8 +37,9 @@ exports.generateQueation = (numRange,questionNum)=>{
         }
         questionArr.push(expArr) //生成完之后放入数组
     }
-    console.log(questionArr)
+    // return questionArr
     //将数组表达式插入括号
+    insertBrackets(questionArr)
     //题目转为写入写入文件格式
     //题目答案转为写入文件格式
     //题目和答案装入写入文件
