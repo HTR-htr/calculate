@@ -33,8 +33,6 @@ const Arithmetic = {
     });
   }
 }
-
-
 /**
  * @description: 计算表达式的值
  * @param {Object[]} expression 表达式

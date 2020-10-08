@@ -8,7 +8,8 @@ app.on('ready',()=>{
         width:500,
         height:650,
         webPreferences:{
-            nodeIntegration:true    //支持node的功能
+            nodeIntegration:true,    //支持node的功能
+            enableRemoteModule:true
 
         }
     })

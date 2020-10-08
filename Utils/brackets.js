@@ -8,7 +8,6 @@ const { calculateExpArr } = require('D://Desktop//calculate//Utils//calculate')
  */
 //出于方便直插入一对括号
 exports.insertBrackets = (questionArr)=>{
-    console.log(questionArr)
     questionArr.map((item,index)=>{
         if(item.length == 3){   //一个操作符的直接返回不做处理
             return item
@@ -21,12 +20,13 @@ exports.insertBrackets = (questionArr)=>{
                 return newExpArr
             }else{//随机生成括号书为1,做插入括号操作
                 newExpArr = leftBracketLocation(item)
-                console.log(newExpArr)
             }
             }while(calculateExpArr(newExpArr)<0)
             return newExpArr
         }
     })  
+    console.log(questionArr)
+    return questionArr
 }
 /**
  * @description: 插入左括号
@@ -53,6 +53,5 @@ rightBracketLocation = (expArr,leftBracketLocation)=>{
         var rightBracketLocation = creatRandom(leftBracketLocation+4,expArrLength)
     }while(rightBracketLocation%2!==0)
     expArr.splice(rightBracketLocation,0,')')
-    console.log(expArr)
     return expArr
 }

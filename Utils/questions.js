@@ -37,10 +37,13 @@ exports.generateQuestion = (numRange,questionNum)=>{
         }
         questionArr.push(expArr) //生成完之后放入数组
     }
-    // return questionArr
     //将数组表达式插入括号
-    insertBrackets(questionArr)
-    //题目转为写入写入文件格式
-    //题目答案转为写入文件格式
+    let insertBracketsArr = insertBrackets(questionArr)
+    // let strQuestionsArr = questionsToStr(insertBracketsArr);
+    // //题目转为写入写入文件格式
+    // let answers = insertBracketsArr.map((exp, index) => `${index+1}. ${calculateExp(exp).toStr()}`);
+    // //题目答案转为写入文件格式
+    // writeFile('Exercises.txt', strQuestionsArr.join('\n'));
+    // writeFile('Answers.txt', answers.join('\n'));
     //题目和答案装入写入文件
 }
