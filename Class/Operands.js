@@ -1,7 +1,6 @@
 //操作数类
 const {creatRandom} = require('D://Desktop//calculate//Utils//index')
-module.exports ={
-    Operands :class Operands{
+exports.Operands=class Operands{
         constructor({
             numRange = 10, //默认范围为0-10,默认输入的数大于0，前端判定范围大于0
             canBeZero = true,  //默认是可以为0的
@@ -19,9 +18,9 @@ module.exports ={
             let absDenominator = Math.abs(this.denominator)
             let absMolecular = Math.abs(this.molecular)
             let integer = Math.floor(absMolecular/absDenominator) //假分数前面的值
-            let molecular = absMolecular%absDenominator
-            if(molecular===0) return `${integer}` 
-            return `${integer}'${molecular}/${absDenominator}`
+            let molecular = absMolecular%absDenominator 
+            if(molecular===0) return `${integer}` //分子为0，则直接生成整数
+            return (integer===0?`${molecular}/${absDenominator}`:`${integer}'${molecular}/${absDenominator}`) //整数为零，返回分数部分，整数不为0，返回整个假分数
         }
     }
-}
+
