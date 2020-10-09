@@ -9,8 +9,7 @@ app.on('ready',()=>{
         height:650,
         webPreferences:{
             nodeIntegration:true,    //支持node的功能
-            enableRemoteModule:true
-
+            enableRemoteModule:true //支持remote
         }
     })
     mainWindow.webContents.openDevTools()

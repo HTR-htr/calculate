@@ -25,7 +25,6 @@ exports.insertBrackets = (questionArr)=>{
             return newExpArr
         }
     })  
-    console.log(questionArr)
     return questionArr
 }
 /**

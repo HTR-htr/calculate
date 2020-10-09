@@ -1,4 +1,5 @@
 //题目相关方法
+const { writeFile } = require('D://Desktop//calculate//Utils//file')
 const { creatRandom } = require('D://Desktop//calculate//Utils//index')
 const { Operands } = require('D://Desktop//calculate//Class//Operands')
 const { Operandor} = require('D://Desktop//calculate//Class//Operandor') 
@@ -22,8 +23,7 @@ exports.generateQuestion = (numRange,questionNum)=>{
         for(let j=0;j<operandsNum;j++){
             let newOperandsNum = new Operands({numRange,canBeZero})
             expArr.push(newOperandsNum)
-
-            while(calculateExpArr(expArr)<0){//看看结果是不是正数
+            while(calculateExpArr(expArr).value<0){//看看结果是不是正数
                 let newOperandsNum = new Operands({numRange,canBeZero})
                 expArr.pop()
                 expArr.push(newOperandsNum)
@@ -39,11 +39,25 @@ exports.generateQuestion = (numRange,questionNum)=>{
     }
     //将数组表达式插入括号
     let insertBracketsArr = insertBrackets(questionArr)
-    // let strQuestionsArr = questionsToStr(insertBracketsArr);
+    console.log(insertBracketsArr)
+    // console.log(calculateExpArr(insertBracketsArr[0]))
+    let strQuestionsArr = questionsToStr(insertBracketsArr);
+    console.log(strQuestionsArr)
     // //题目转为写入写入文件格式
-    // let answers = insertBracketsArr.map((exp, index) => `${index+1}. ${calculateExp(exp).toStr()}`);
+    let answers = insertBracketsArr.map((exp, index) => `${index+1}. ${calculateExpArr(exp).toStr()}`);
+    console.log(answers)
     // //题目答案转为写入文件格式
-    // writeFile('Exercises.txt', strQuestionsArr.join('\n'));
-    // writeFile('Answers.txt', answers.join('\n'));
+    writeFile('Exercises.txt', strQuestionsArr.join('\n'));
+    writeFile('Answers.txt', answers.join('\n'));
     //题目和答案装入写入文件
 }
+/**
+ * @description: 题目数组遍历转换为题目格式(string[]) 
+ * @param {Array[]} questionArr  题目数组
+ * @return: 转为固定格式的题目字符串数组 例如：1. a + b + c = 
+ */
+let questionsToStr = questionArr => questionArr.map((expression, index) => {
+    let str = expression.map(item => (typeof item === 'object') ? item.toStr() : item);
+    str.unshift(`${index + 1}. `);
+    return str.join('').concat(' = ');
+  })

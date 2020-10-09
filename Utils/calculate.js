@@ -7,29 +7,29 @@ const Arithmetic = {
   // 两个操作数求和 
   addOperands(a, b) {
     return new Operands({
-      numerator: a.numerator * b.denominator + b.numerator * a.denominator,
+      molecular: a.molecular * b.denominator + b.molecular * a.denominator,
       denominator: a.denominator * b.denominator
     });
   },
   // 两个操作数求差
   subOperands(a, b) {
     return new Operands({
-      numerator: a.numerator * b.denominator - b.numerator * a.denominator,
+      molecular: a.molecular * b.denominator - b.molecular * a.denominator,
       denominator: a.denominator * b.denominator
     });
   },
   // 两个操作数乘法
   multOperands(a, b) {
     return new Operands({
-      numerator: a.numerator * b.numerator,
+      molecular: a.molecular * b.molecular,
       denominator: a.denominator * b.denominator
     });
   },
   // 两个操作数除法
   divOperands(a, b) {
     return new Operands({
-      numerator: a.numerator * b.denominator,
-      denominator: a.denominator * b.numerator
+      molecular: a.molecular * b.denominator,
+      denominator: a.denominator * b.molecular
     });
   }
 }
@@ -87,7 +87,7 @@ exports.calculateExpArr = (expression) => {
       let b = answerStack.pop();
       let a = answerStack.pop();
       let result = null;
-      switch (item.operator) {
+      switch (item.operandor) {
         case '+':
           result = addOperands(a, b);
           break;

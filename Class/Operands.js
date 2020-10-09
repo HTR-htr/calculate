@@ -9,9 +9,9 @@ exports.Operands=class Operands{
         }){
            
             this.numRange = numRange
-            this.canBeZero = canBeZero
             this.denominator = (denominator!==null?Number(denominator):creatRandom(1,numRange)) //没给分母赋值的话，从1到numRange生成一个[1,numRange]
             this.molecular = (molecular!==null?Number(molecular):creatRandom(canBeZero?0:1,this.numRange*this.denominator) )//分子有没有赋值，没有赋值先看看是不是可以为0，可以则从[0,numRange*this.denominator]，否则[1,numRange*this.denominator]
+            this.value = this.molecular/this.denominator
         } 
         //将函数转换成为a'b/c字符串的形式
         toStr(){
